@@ -3,20 +3,20 @@ const board28 = document.getElementById("board28");
 const btnErase = document.getElementById("buttonErase");
 const prediction = document.getElementById("prediction");
 
-const ctx250 = board300.getContext("2d");
+const ctx300 = board300.getContext("2d");
 const ctx28 = board28.getContext("2d");
 
 let model;
 
 let painting = false;
-const border = 20;
+const border = 30;
 let xPrev = 0, yPrev = 0, xCurrent = 0, yCurrent = 0;
 
 const getRealX = (clientX) => clientX - board300.getBoundingClientRect().left;
 const getRealY = (clientY) => clientY - board300.getBoundingClientRect().top;
 
-ctx250.fillStyle = "black";
-ctx250.fillRect(0, 0, board300.width, board300.height);
+ctx300.fillStyle = "black";
+ctx300.fillRect(0, 0, board300.width, board300.height);
 
 const init = async () => {
     model = await tf.loadLayersModel('https://pegadro.github.io/digit-recognition-playground/model.json');
@@ -29,10 +29,10 @@ const startPosition = (e) => {
     xCurrent = getRealX(e.clientX);
     yCurrent = getRealY(e.clientY);
 
-    ctx250.beginPath();
-    ctx250.fillStyle = "black";
-    ctx250.lineTo(xCurrent, yCurrent);
-    ctx250.closePath();
+    ctx300.beginPath();
+    ctx300.fillStyle = "black";
+    ctx300.lineTo(xCurrent, yCurrent);
+    ctx300.closePath();
 
     painting = true;
 }
@@ -46,15 +46,15 @@ const draw = (e) => {
     xCurrent = getRealX(e.clientX);
     yCurrent = getRealY(e.clientY);
 
-    ctx250.beginPath();
-    ctx250.moveTo(xPrev, yPrev);
-    ctx250.lineTo(xCurrent, yCurrent);
+    ctx300.beginPath();
+    ctx300.moveTo(xPrev, yPrev);
+    ctx300.lineTo(xCurrent, yCurrent);
 
-    ctx250.strokeStyle = "white";
-    ctx250.lineWidth = border;
-    ctx250.lineCap = "round";
-    ctx250.stroke();
-    ctx250.closePath();
+    ctx300.strokeStyle = "white";
+    ctx300.lineWidth = border;
+    ctx300.lineCap = "round";
+    ctx300.stroke();
+    ctx300.closePath();
 }
 
 const finishPosition = () => {
@@ -65,12 +65,16 @@ const finishPosition = () => {
 const predict = () => {
     let matrix = getMatrix();
     let predictions = model.predict(matrix).dataSync();
+    for (let i=0; i<predictions.length; i++) {
+        let predictionTD = document.getElementById(`prediction${i}`);
+        predictionTD.innerText = Number(+predictions[i]).toFixed(3);
+    }
     prediction.innerText = predictions.indexOf(Math.max(...predictions));
 }
 
 const getMatrix = () => {
-    ctx28.filter = "blur(0.4px)";
-    ctx28.drawImage(ctx250.canvas, 0, 0, board28.width, board28.height);
+    ctx28.filter = "blur(0.470px)";
+    ctx28.drawImage(ctx300.canvas, 0, 0, board28.width, board28.height);
     const imgData = ctx28.getImageData(0, 0, board28.width, board28.height);
 
     let imgValues = [];
@@ -84,9 +88,9 @@ const getMatrix = () => {
 }
 
 const erase = () => {
-    ctx250.fillStyle = "black";
-    ctx250.fillRect(0, 0, board300.width, board300.height);
-    prediction.innerText = "";
+    ctx300.fillStyle = "black";
+    ctx300.fillRect(0, 0, board300.width, board300.height);
+    prediction.innerText = "-";
 }
 
 board300.addEventListener("mousedown", startPosition)

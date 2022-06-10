@@ -1,7 +1,7 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -18,8 +18,8 @@ header {
 }
 
 header div {
-    align-self: center;
     margin-left: 10px;
+    align-self: center;
 }
 
 header div {
@@ -29,8 +29,8 @@ header div {
 
 header div .separator {
     font-weight: 500;
-    font-size: 2.2rem;
     color: #93c572;
+    font-size: 2.2rem;
 }
 
 header div .bold {
@@ -39,36 +39,36 @@ header div .bold {
 
 .main {
     width: 100vw;
-    height: calc(100vh - 48px);
     display: flex;
     align-items: center;
     justify-content: center;
+    height: calc(100vh - 48px);
 }
 
 .playground {
     display: flex;
-    flex-direction: row;
     height: 500px;
+    flex-direction: row;
 }
 
 .board {
+    width: 300px;
     display: flex;
-    flex-direction: column;
-    width: 260px;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
 }
 
 .board h3 {
-    font-size: 2rem;
     font-weight: 700;
     margin-top: 12px;
+    font-size: 2.35rem;
     margin-bottom: 12px;
 }
 
 #board300 {
-    border: 1px solid black;
     cursor: crosshair;
+    border: 1px solid black;
 }
 
 #board28 {
@@ -77,28 +77,28 @@ header div .bold {
 
 .buttonErase {
     width: 45px;
-    height: 45px;
-    background: #93c572;
-    border-radius: 10px;
-    border: none;
     margin: 8px;
+    height: 45px;
+    border: none;
     margin-left: 0;
     cursor: pointer;
+    border-radius: 10px;
+    background: #93c572;
     align-self: flex-start;
 }
 
 .icon {
-    font-size: 25px;
     color: white;
+    font-size: 25px;
 }
 
 .result {
     width: 350px;
     display: flex;
+    padding: 10px;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
 }
 
 .description {
@@ -108,6 +108,61 @@ header div .bold {
 
 #prediction {
     font-size: 7rem;
+    margin-bottom: 10px;
+}
+
+.predictionsLabel {
+    font-size: 1.8rem;
+}
+
+.predictionPercentage {
+    width: 160px;
+    display: flex;
+    margin-top: 8px;
+    font-size: 1.6rem;
+    border-radius: 6px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #93c572;
+}
+
+.predictionPercentage table {
+    width: 100%;
+    height: 100%;
+}
+
+.predictionPercentage tr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.predictionPercentage td {
+    width: 50%;
+    margin: 2px;
+    display: flex;
+    font-weight: 500;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    justify-content: center;
+    background-color: white;
+}
+
+.top-left-corner {
+    border-top-left-radius: 6px;
+}
+
+.top-right-corner {
+    border-top-right-radius: 6px;
+}
+
+.bottom-left-corner {
+    border-bottom-left-radius: 6px;
+}
+
+.bottom-right-corner {
+    border-bottom-right-radius: 6px;
 }
 
 @media (max-width: 664px) {
@@ -116,8 +171,8 @@ header div .bold {
         align-items:flex-start;
     }
     .playground {
-        flex-direction: column;
         align-items: center;
+        flex-direction: column;
     }
     .result {
         margin-top: 20px;
