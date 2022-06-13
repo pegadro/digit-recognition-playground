@@ -36,6 +36,14 @@ module.exports = {
                 to: ''
             },
             {
+                from: './node_modules/croppie/croppie.js',
+                to: ''
+            },
+            {
+                from: './node_modules/croppie/croppie.css',
+                to: ''
+            },
+            {
                 from: './src/model/model.json',
                 to: ''
             },

@@ -75,7 +75,13 @@ header div .bold {
     display: none;
 }
 
-.buttonErase {
+.btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
     width: 45px;
     margin: 8px;
     height: 45px;
@@ -84,7 +90,6 @@ header div .bold {
     cursor: pointer;
     border-radius: 10px;
     background: #93c572;
-    align-self: flex-start;
 }
 
 .icon {
@@ -115,7 +120,7 @@ header div .bold {
     font-size: 1.8rem;
 }
 
-.predictionPercentage {
+.predictionPercentages {
     width: 160px;
     display: flex;
     margin-top: 8px;
@@ -127,18 +132,18 @@ header div .bold {
     background-color: #93c572;
 }
 
-.predictionPercentage table {
+.predictionPercentages table {
     width: 100%;
     height: 100%;
 }
 
-.predictionPercentage tr {
+.predictionPercentages tr {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.predictionPercentage td {
+.predictionPercentages td {
     width: 50%;
     margin: 2px;
     display: flex;
@@ -165,15 +170,61 @@ header div .bold {
     border-bottom-right-radius: 6px;
 }
 
+.modal {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: none;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.crop {
+    width: 80%;
+    padding: 20px;
+    margin: 15% auto;
+    border: 1px solid #888;
+    background-color: #fefefe;
+}
+
+.cropOptionsButtons {
+    margin: 10px;
+}
+
+.btnOptionCrop {
+    width: 80px;
+    margin: 6px;
+    height: 35px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.cancel {
+    background-color: #ff6961;
+}
+
+.continue {
+    background-color: #93c572;
+}
+
 @media (max-width: 664px) {
     .main {
         margin-top: 20px;
-        align-items:flex-start;
+        align-items: flex-start;
     }
+
     .playground {
         align-items: center;
         flex-direction: column;
     }
+
     .result {
         margin-top: 20px;
         padding-top: 10px;
