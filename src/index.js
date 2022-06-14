@@ -103,7 +103,7 @@ const getMatrix = () => {
     for (let i = 0; i < imgData.data.length; i += 4) {
         imgValues.push(imgData.data[i] / 255);
     }
-
+    
     imgValues = applyThreshold(imgValues);
     imgValues = tf.reshape(imgValues, [1, 28, 28, 1])
 
