@@ -85,7 +85,7 @@ const predict = () => {
 const applyThreshold = (values) => {
     let imgValues = new Array(values.length).fill(null);
     for (let i=0; i<values.length; i++) {
-        if (values[i] < 0.25) {
+        if (values[i] < 0.35) {
             imgValues[i] = 0;
         } else {
             imgValues[i] = values[i];
@@ -104,9 +104,7 @@ const getMatrix = () => {
         imgValues.push(imgData.data[i] / 255);
     }
 
-    console.log(imgValues);
     imgValues = applyThreshold(imgValues);
-    console.log(imgValues);
     imgValues = tf.reshape(imgValues, [1, 28, 28, 1])
 
     return imgValues;
